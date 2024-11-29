@@ -1,4 +1,4 @@
-import evaluacion.pago as Plata
+import Procesos.pago as Plata
 class Cliente:
     def __init__(self, nombre, id, telefono, direccion, habitacion):
         self.nombre = nombre
