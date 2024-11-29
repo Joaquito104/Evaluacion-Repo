@@ -1,5 +1,5 @@
 import evaluacion.pago as Plata
-class Cliente:
+class Invitado:
     def __init__(self, nombre, id, telefono, direccion, habitacion):
         self.nombre = nombre
         self.id = id
