@@ -7,3 +7,6 @@ class Gerente:
     def agregar_recepcionista(self, recepcionista):
         
         pass
+
+    def eliminar_recepcionista (self, recepcionista):
+        pass
