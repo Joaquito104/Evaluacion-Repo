@@ -6,17 +6,9 @@ class Invitado:
         self.telefono = telefono
         self.direccion = direccion
         self.habitacion = habitacion
+        self.registros_list = []
+        self.factura_list = []
 
-    def FechaInicio(self):
-        
-        
-        pass
-
-    def FechaFin(self):
-        pass
-
-    def Pago(self):
-        
-        pass
+    
 
  
