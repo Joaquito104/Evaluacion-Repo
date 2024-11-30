@@ -6,5 +6,6 @@ class Habitacion:
         self.precio = precio
         self.disponibilidad = disponibilidad
 
-    def disponibilidad():       
-        pass #Añadir codigo
+    def cambiar_estado(self, nuevo_estado):
+        self.estado = nuevo_estado
+        print(f"Estado de la habitación {self.numero} cambiado a {nuevo_estado}.")
