@@ -6,5 +6,5 @@ class Habitacion:
         self.precio = precio
         self.disponibilidad = disponibilidad
 
-    def disponibilidad():
+    def disponibilidad():       
         pass #Añadir codigo
