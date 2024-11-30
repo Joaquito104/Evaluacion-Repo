@@ -1,4 +1,4 @@
-import Procesos.pago as Plata
+from Procesos.pago import pago as Plata #Importe clase pago y metodo
 class Invitado:
     def __init__(self, nombre, id, telefono, direccion, habitacion):
         self.nombre = nombre
@@ -6,6 +6,10 @@ class Invitado:
         self.telefono = telefono
         self.direccion = direccion
         self.habitacion = habitacion
+
+    def Pago(self):
+        Plata.ProcesarPago
+        pass
 
     def FechaInicio(self):
         
@@ -15,8 +19,6 @@ class Invitado:
     def FechaFin(self):
         pass
 
-    def Pago(self):
-        
-        pass
+
 
  
