@@ -5,7 +5,12 @@ class Invitado:
         self.telefono = telefono
         self.direccion = direccion
         self.habitacion = habitacion
+        self.registros_list = []
+        self.factura_list = []
 
+<<<<<<< HEAD
+    
+=======
     def FechaInicio(self):
         Inicio = input("Ingrese la Fecha de Inicio:")     
         return Inicio
@@ -16,5 +21,6 @@ class Invitado:
 
 def Reserva(self):
     pass
+>>>>>>> 48334815ae84db6768a3b3c3ae644d0a0fffc6f1
 
  
