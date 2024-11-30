@@ -14,4 +14,11 @@ class Recepcionista:
         print(f"Reserva realizada para {invitado.nombre} en la habitación {habitacion.numero}.")
 
 
+    def generar_factura(self, invitado):
+        montoTotal = sum(registro.habitacion.precio for registro in invitado.registros_list)
+        factura = factura(len(invitado.factura_list) + 1, "2023-10-10", montoTotal, "Pagada")
+        factura.invitado = invitado
+        factura.registros_list = invitado.registros_list
+        invitado.factura_list.append(factura)
+        print(f"Factura generada para {invitado.nombre}: Monto Total = {montoTotal}.")
       
