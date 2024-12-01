@@ -38,19 +38,19 @@ class Pago:
                 identificador1 = input('Escriba el código de identificación del pago: ')
                 MetodoDePago = 'Tarjeta de crédito'
                 self.confirmar_transaccion(identificador1, monto_pago, fecha_actual, MetodoDePago)
-                break  # Salir del bucle principal después de completar la transacción
+                break  # Salir del bucle después de completar la transacción
 
             elif Selector == 2:
                 identificador2 = input('Escriba el código de identificación del pago: ')
                 MetodoDePago = 'Efectivo'
                 self.confirmar_transaccion(identificador2, monto_pago, fecha_actual, MetodoDePago)
-                break  # Salir del bucle principal después de completar la transacción
+                break  # Salir del bucle después de completar la transacción
 
             elif Selector == 3:
                 identificador3 = input('Escriba el código de identificación del pago: ')
                 MetodoDePago = 'Transferencia Electrónica'
                 self.confirmar_transaccion(identificador3, monto_pago, fecha_actual, MetodoDePago)
-                break  # Salir del bucle principal después de completar la transacción
+                break  # Salir del bucle después de completar la transacción
 
             else:
                 print('Error, pago no aceptado. Vuelva a ingresar el método de pago')
