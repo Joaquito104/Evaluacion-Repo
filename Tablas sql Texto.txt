@@ -1,0 +1,59 @@
+use x;      -- Nombre provisional.      Cambiar una vez hecho los procedimientos en el dispositivo del cliente
+
+CREATE TABLE registros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fechaEntrada DATE NOT NULL,
+    fechaSalida DATE NOT NULL,
+    estado VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE invitados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    registro_id INT NOT NULL,
+    FOREIGN KEY (registro_id) REFERENCES registros(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE pagos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    monto DECIMAL(10, 2) NOT NULL,
+    fechaPago DATE NOT NULL,
+    registro_id INT NOT NULL,
+    FOREIGN KEY (registro_id) REFERENCES registros(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE habitaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero INT NOT NULL,
+    tipo VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE gerentes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+);
+
+
+CREATE TABLE invitados (
+    id INT AUTO_INCREMENT PRIMARY KEY,         
+    nombre VARCHAR(100) NOT NULL,             
+    registro_id INT NOT NULL,                  -- ID del registro asociado
+    FOREIGN KEY (registro_id) REFERENCES registros(id)   -- Relación con la tabla registros
+);
+
+
+--TABLA AUXILIAR SI EL CLIENTE NECESITA MAS DATOS DEL INVITADOS
+/*CREATE TABLE invitados (
+    id INT AUTO_INCREMENT PRIMARY KEY,        
+    nombre VARCHAR(100) NOT NULL,               
+    documento_identidad VARCHAR(50),          
+    telefono VARCHAR(20),                                          
+    correo_electronico VARCHAR(100),            
+    registro_id INT NOT NULL,                  
+    FOREIGN KEY (registro_id) REFERENCES registros(id)   -- Relación con la tabla registros
+);*/ 
