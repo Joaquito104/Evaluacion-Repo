@@ -1,3 +1,4 @@
+import Personas.Invitado
 class Recepcionista:
     def __init__(self, nombre, idEmpleado, turno):
         self.nombre=nombre

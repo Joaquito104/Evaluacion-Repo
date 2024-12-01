@@ -1,5 +1,5 @@
 import datetime as tiempo
-from Procesos.pago import Pago
+from Metodos.pago import Pago
 from Hotelsito.habitacion import SistemaHabitaciones
 
 class Invitado:
