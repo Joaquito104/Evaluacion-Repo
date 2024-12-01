@@ -1,12 +1,11 @@
-#Archivo para ver registros accedido por el recepcionista
-
-from Metodos.registros import Registro
-from Metodos.registros import SistemaRegistro
+import Metodos.registros  
+from Metodos.registros import SistemaRegistro, Registro  
+from Personas.gerente import Gerente  
 
 def menu():
-    sistema = SistemaRegistro()  # Creamos una instancia del sistema de registros
+    sistema = SistemaRegistro()  # Instanciamos el sistema de registros
     while True:
-        print("\n--- Menú de Registro ---")
+        print("\n--- Menú de Gerente ---")
         print("1. Agregar registro")
         print("2. Eliminar registro")
         print("3. Buscar registro")
