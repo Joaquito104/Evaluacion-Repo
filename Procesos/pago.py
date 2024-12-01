@@ -17,8 +17,8 @@ class Pago:
                 self.FechaPago = fecha_actual  # Guardar en la clase
                 self.MetodoPago = MetodoDePago
                 print(f'Transacción completada con id {self.id}, un monto total de {self.monto} con fecha {self.FechaPago} realizada con {self.MetodoPago}')  
-                break  # Salir del bucle de confirmación
-
+                break  # Salir del bucle de confirmaión 
+            
             elif Confirmar.lower() == 'no':           
                 print('Transacción cancelada')
                 break  # Salir del bucle de confirmación

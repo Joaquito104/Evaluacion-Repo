@@ -1,3 +1,5 @@
+#Archivo excluido del main unicamente accedido por el gerente
+
 class Gerente:
     def __init__(self, nombre, idGerente, telefono):
         self.nombre=nombre

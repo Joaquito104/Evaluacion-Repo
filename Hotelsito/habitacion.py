@@ -1,67 +1,56 @@
 class Habitacion:
     def __init__(self, numero, tipo, precio, disponibilidad):
-        self.numero = numero    # El número es el identificador
+        self.numero = numero
         self.tipo = tipo
         self.precio = precio
         self.disponibilidad = disponibilidad
 
-    def validador_numero(self, numero):
-        # Validar que el número sea un entero
+    def cambiar_estado(self, nuevo_estado):
+        """Cambia el estado de la habitación."""
+        if nuevo_estado in ["Disponible", "Ocupado"]:
+            self.disponibilidad = nuevo_estado
+            print(f"Estado de la habitación {self.numero} cambiado a {nuevo_estado}.")
+        else:
+            print("Estado no válido. Debe ser 'Disponible' o 'Ocupado'.")
+
+class SistemaHabitaciones:
+    def __init__(self):
+        self.habitaciones = []
+
+    def agregar_habitacion(self):
+        """Agrega una nueva habitación al sistema."""
         try:
-            numero = int(numero)
-            return numero
+            numero = int(input("Ingrese número de habitación: "))
+            tipo = input("Ingrese Tipo (Sencilla, Doble, etc.): ")
+            precio = float(input("Ingrese el precio de la habitación por noche: "))
+            if precio <= 0:
+                print("Error: El precio debe ser mayor que 0.")
+                return
+
+            habitacion = Habitacion(numero, tipo, precio, "Disponible")
+            self.habitaciones.append(habitacion)
+            print("Habitación agregada exitosamente.")
         except ValueError:
-            print('Error: El dato indicado no corresponde a un número entero.')
-            return 0
+            print("Error: Entrada inválida. Asegúrese de ingresar un número válido para el precio y el número de habitación.")
 
-    def ver_datos_habitacion(self):
-        #Ver cada dato de la habitacion
-        numero_habitacion = input ('Ingrese numero habitacion que necesite ver:')
-        numero_habitacion = self.validador_numero(numero_habitacion)
-
-        if numero_habitacion != 0 and numero_habitacion == self.numero:
-            print(f'Número: {self.numero}, Tipo: {self.tipo}, Precio: {self.precio}, Disponibilidad: {self.disponibilidad}')
-
-    def ver_estado(self):
-        # Ver el estado de una habitación
-        ver = input('Escriba el número de la habitación que quiere ver su estado: ')
-        ver = self.validador_numero(ver)                          
-        
-        if ver is not 0 and ver == self.numero:
-            print(f'El estado de la habitación {self.numero} es {self.disponibilidad}')
+    def ver_habitaciones(self):
+        """Muestra todas las habitaciones registradas."""
+        if self.habitaciones:
+            for habitacion in self.habitaciones:
+                print(f"Número: {habitacion.numero}, Tipo: {habitacion.tipo}, Precio: {habitacion.precio}, Disponibilidad: {habitacion.disponibilidad}")
         else:
-            print(f'No existe una habitación con el número {ver}.')
+            print("No hay habitaciones registradas.")
 
-    def cambiar_estado(self):
-        # Cambiar el estado de la habitación
-        nuevo_estado = input('Seleccione el cambio de estado con el número correspondiente: \n 1.- Disponible \n 2.- Ocupado \n 3.- No cambiar: ')
+    def cambiar_estado(self, numero, nuevo_estado):
+        """Permite cambiar el estado de una habitación dado su número y el nuevo estado."""
+        if nuevo_estado != "Disponible" and nuevo_estado != "Ocupado":
+            print("Estado no válido. Debe ser 'Disponible' o 'Ocupado'.")
+            return
 
-        # Validacion
-        nuevo_estado = self.validador_numero(nuevo_estado)
-    
-        if nuevo_estado is not 0:  # Solo proceder si el valor es válido
-       
-            numero = input('Ingrese el número de habitación para cambiar su estado: ')
-            numero = self.validador_numero(numero)  # Validar
-
-            if numero is not 0: #Proceder si el número también es válido
-                
-                if nuevo_estado == 1:
-                    estado = 'Disponible'
-                    self.disponibilidad = estado
-                    print(f"Estado de la habitación {numero} cambiado a {self.disponibilidad}.")  
-
-                elif nuevo_estado == 2:
-                    estado = 'Ocupado'
-                    self.disponibilidad = estado
-                    print(f"Estado de la habitación {numero} cambiado a {self.disponibilidad}.")
-                elif nuevo_estado == 3:
-                    print(f"No se ha realizado ningún cambio en el estado de la habitación {numero}.")
         
-                else:
-                    print('Opción no válida. No se cambió el estado.')
-            else:
-                print("Número de habitación no válido.")
-        else:
-            print("Opción de estado no válida.")
-
+        for habitacion in self.habitaciones:
+            if habitacion.numero == numero:
+                habitacion.cambiar_estado(nuevo_estado)
+                return
+        
+        print("Habitación no encontrada.")
