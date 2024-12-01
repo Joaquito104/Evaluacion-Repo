@@ -8,6 +8,15 @@ class Registro:
         self.invitado = None
         self.habitacion = None
 
+    def agregar_invitado(self, invitado):
+        self.invitado = invitado
+    def registrar_pago(self, monto):
+        if self.estado == 'reservado':
+            print(f"Registro de pago de {monto} para el invitado {self.invitado.nombre}.")
+            self.estado = 'pagado'  
+        else:
+            print("No se puede registrar el pago, el estado actual no lo permite.")
+
 
 #Importar pagos, datos de reserva y mas
 
