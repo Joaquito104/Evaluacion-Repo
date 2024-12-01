@@ -46,7 +46,6 @@ class SistemaHabitaciones:
         if nuevo_estado != "Disponible" and nuevo_estado != "Ocupado":
             print("Estado no válido. Debe ser 'Disponible' o 'Ocupado'.")
             return
-
         
         for habitacion in self.habitaciones:
             if habitacion.numero == numero:
@@ -54,3 +53,10 @@ class SistemaHabitaciones:
                 return
         
         print("Habitación no encontrada.")
+
+    def obtener_habitacion_disponible(self):
+        """Devuelve una habitación disponible para el registro de un invitado."""
+        for habitacion in self.habitaciones:
+            if habitacion.disponibilidad == "Disponible":
+                return habitacion
+        return None

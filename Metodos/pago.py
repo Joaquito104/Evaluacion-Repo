@@ -1,56 +1,42 @@
-import datetime as tiempo  # Importación de métodos de fechas
+import datetime as tiempo
 
 class Pago:
-    def __init__(self, id=None, monto=None, FechaPago=None, MetodoPago=None):
-        self.id = id
+    def __init__(self, monto):
         self.monto = monto
-        self.FechaPago = FechaPago
-        self.MetodoPago = MetodoPago
+        self.MetodoPago = None
 
-    def confirmar_transaccion(self, identificador, monto_pago, fecha_actual, MetodoDePago):
+    def confirmar_transaccion(self, monto_pago, MetodoDePago):
         while True:
-            Confirmar = input("Confirmar transacción con un Si/No respectivamente: ")  # Confirmar transacción
+            confirmar = input("Confirmar transacción con un Si/No respectivamente: ")
 
-            if Confirmar.lower() == 'si':
-                self.id = identificador
-                self.monto = monto_pago
-                self.FechaPago = fecha_actual  # Guardar en la clase
+            if confirmar.lower() == 'si':
                 self.MetodoPago = MetodoDePago
-                print(f'Transacción completada con id {self.id}, un monto total de {self.monto} con fecha {self.FechaPago} realizada con {self.MetodoPago}')  
-                break  # Salir del bucle de confirmaión 
-            
-            elif Confirmar.lower() == 'no':           
+                print(f'Transacción completada con un monto total de {self.monto} realizado con {self.MetodoPago}')
+                break
+
+            elif confirmar.lower() == 'no':
                 print('Transacción cancelada')
-                break  # Salir del bucle de confirmación
+                break
 
             else:
                 print('Error. Vuelva a confirmar la transacción')
 
-    def ProcesarPago(self): 
-        monto_pago = int(input('Para comenzar la transacción ingrese Monto: '))
-
-        fecha_actual = tiempo.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Formato de hora: Año-Mes-Día - Hora:Minuto:Segundo
-
+    def procesar_pago(self):
+        monto_pago = float(input('Ingrese el monto del pago: '))
         while True:
-            Selector = int(input("Seleccione el método de pago con el número correspondiente: \n 1 = Tarjeta de crédito \n 2 = Efectivo \n 3 = Transferencia Electrónica "))
+            selector = int(input("Seleccione el método de pago (1 = Tarjeta de crédito, 2 = Efectivo, 3 = Transferencia): "))
             
-            if Selector == 1:
-                identificador1 = input('Escriba el código de identificación del pago: ')
-                MetodoDePago = 'Tarjeta de crédito'
-                self.confirmar_transaccion(identificador1, monto_pago, fecha_actual, MetodoDePago)
-                break  # Salir del bucle después de completar la transacción
-
-            elif Selector == 2:
-                identificador2 = input('Escriba el código de identificación del pago: ')
-                MetodoDePago = 'Efectivo'
-                self.confirmar_transaccion(identificador2, monto_pago, fecha_actual, MetodoDePago)
-                break  # Salir del bucle después de completar la transacción
-
-            elif Selector == 3:
-                identificador3 = input('Escriba el código de identificación del pago: ')
-                MetodoDePago = 'Transferencia Electrónica'
-                self.confirmar_transaccion(identificador3, monto_pago, fecha_actual, MetodoDePago)
-                break  # Salir del bucle después de completar la transacción
-
+            if selector == 1:
+                metodo_pago = 'Tarjeta de crédito'
+                self.confirmar_transaccion(monto_pago, metodo_pago)
+                break
+            elif selector == 2:
+                metodo_pago = 'Efectivo'
+                self.confirmar_transaccion(monto_pago, metodo_pago)
+                break
+            elif selector == 3:
+                metodo_pago = 'Transferencia Electrónica'
+                self.confirmar_transaccion(monto_pago, metodo_pago)
+                break
             else:
-                print('Error, pago no aceptado. Vuelva a ingresar el método de pago')
+                print('Método de pago no válido.')
