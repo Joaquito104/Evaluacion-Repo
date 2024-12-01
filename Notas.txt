@@ -1,0 +1,1 @@
+Hola, este proyecto fue desarrollado para instalarse dentro del dispositivo del cliente, los archivos de la conexión a base de datos se dejaron asi debido a que se tienen que modificar dentro del dispositivo por ello el diseño de todos los archivos fue pensado de esa manera
